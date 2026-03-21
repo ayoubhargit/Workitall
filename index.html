@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Industrial automation, robotics integration, traceability, and technical support from Tangier for factories in Morocco and abroad.">
+<meta name="keywords" content="automation, robotics, PLC, smart manufacturing, Industry 4.0, Morocco, Tangier">
+<title>Work It All | Advanced Automation & Robotics Solutions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink-950: #081725;
+  --ink-900: #0f283a;
+  --ink-800: #1c425e;
+  --ink-700: #2d607f;
+  --paper-100: #dcecff;
+  --paper-200: #cfe2fb;
+  --paper-300: #bdd4f3;
+  --card: #e8f2ff;
+  --accent: #1f6fe5;
+  --accent-deep: #174fb4;
+  --signal: #1a6ec7;
+  --line: #b8cfe8;
+  --shadow-lg: 0 22px 55px rgba(8, 25, 40, 0.14);
+  --shadow-md: 0 12px 30px rgba(8, 25, 40, 0.1);
+  --radius-xl: 26px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --transition: all 220ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Public Sans", sans-serif;
+  color: var(--ink-900);
+  line-height: 1.6;
+  background: var(--paper-100);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 14% 10%, rgba(40, 105, 182, 0.28), transparent 38%),
+    radial-gradient(circle at 88% 0%, rgba(24, 158, 193, 0.22), transparent 42%),
+    linear-gradient(180deg, #d9eaff 0%, #cfe3fb 46%, #e3f0ff 100%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(20, 58, 83, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 58, 83, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+  -webkit-mask-image: radial-gradient(circle at center, black 26%, transparent 76%);
+  mask-image: radial-gradient(circle at center, black 26%, transparent 76%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main {
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: min(1220px, 100% - clamp(32px, 8vw, 112px));
+  margin: 0 auto;
+}
+
+.section {
+  padding: clamp(58px, 8vw, 94px) 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.section-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-700);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: clamp(1.55rem, 4vw, 2.4rem);
+  color: var(--ink-900);
+}
+
+.section-intro {
+  max-width: 580px;
+  color: var(--ink-800);
+  font-size: 1rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 620ms ease, transform 620ms ease;
+  transition-delay: var(--delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px clamp(14px, 3.4vw, 40px);
+  background: rgba(214, 230, 247, 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  background: #e7f1ff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: var(--shadow-md);
+}
+
+.brand-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.brand-word-main {
+  color: #000000;
+}
+
+.brand-word-link {
+  color: var(--accent-deep);
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--ink-800);
+  padding: 9px 12px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.site-nav a:hover {
+  color: var(--ink-950);
+  background: var(--paper-200);
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quick-contact {
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 24px rgba(204, 101, 24, 0.34);
+  transition: var(--transition);
+}
+
+.quick-contact:hover {
+  transform: translateY(-1px);
+}
+
+.language-select {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 10px;
+  min-width: 102px;
+  background: var(--card);
+  color: var(--ink-900);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: var(--ink-700);
+  box-shadow: 0 0 0 4px rgba(45, 96, 127, 0.15);
+}
+
+.menu-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 18px;
+  height: 2px;
+  background: var(--ink-900);
+  transition: var(--transition);
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.hero {
+  padding-top: clamp(56px, 8vw, 94px);
+  padding-bottom: 42px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.hero-copy {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(28px, 4vw, 56px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-copy::before {
+  content: "";
+  position: absolute;
+  top: -85px;
+  right: -70px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236, 127, 44, 0.35), transparent 72%);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: var(--paper-200);
+  color: var(--ink-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4.8vw, 3.74rem);
+  color: var(--ink-950);
+  margin-bottom: 14px;
+  max-width: 12ch;
+}
+
+.hero-lead {
+  color: var(--ink-800);
+  font-size: clamp(1rem, 1.5vw, 1.16rem);
+  max-width: 62ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  padding: 12px 21px;
+  font-weight: 700;
+  font-size: 0.93rem;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(204, 101, 24, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border-color: var(--line);
+  color: var(--ink-900);
+  background: var(--card);
+}
+
+.btn-secondary:hover {
+  background: var(--paper-200);
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-tags li {
+  background: var(--paper-200);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: var(--ink-800);
+  font-weight: 600;
+  font-size: 0.83rem;
+}
+
+.hero-panel {
+  background: linear-gradient(160deg, #0f3047 0%, #1b4f6f 58%, #1f8a72 145%);
+  border-radius: var(--radius-xl);
+  color: #e8f3fb;
+  box-shadow: var(--shadow-lg);
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: auto -90px -90px auto;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(236, 127, 44, 0.2);
+}
+
+.hero-panel img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero-panel h3 {
+  margin: 16px 0 8px;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.hero-panel p {
+  color: rgba(232, 243, 251, 0.9);
+  margin-bottom: 14px;
+}
+
+.panel-list {
+  display: grid;
+  gap: 10px;
+}
+
+.panel-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.19);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+
+.panel-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+  background: var(--accent);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.trust-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 14px;
+  box-shadow: var(--shadow-md);
+}
+
+.trust-item strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.98rem;
+}
+
+.trust-item span {
+  display: block;
+  color: var(--ink-700);
+  font-size: 0.86rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.about-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.about-card {
+  padding: 24px;
+}
+
+.about-card > p {
+  color: var(--ink-800);
+  margin-bottom: 18px;
+}
+
+.about-points {
+  display: grid;
+  gap: 10px;
+}
+
+.about-points li {
+  border: 1px solid var(--line);
+  background: var(--paper-200);
+  border-radius: 11px;
+  padding: 12px;
+}
+
+.about-points h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.about-points p {
+  color: var(--ink-700);
+  font-size: 0.92rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px rgba(8, 25, 40, 0.16);
+}
+
+.service-card img {
+  width: 100%;
+  height: 172px;
+  object-fit: cover;
+}
+
+.service-body {
+  padding: 15px 15px 20px;
+}
+
+.service-body h3 {
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+
+.service-body p {
+  color: var(--ink-700);
+  font-size: 0.93rem;
+}
+
+.process-shell {
+  background: linear-gradient(150deg, #0d2940, #123550 38%, #154565 100%);
+  border-radius: var(--radius-xl);
+  padding: clamp(24px, 4vw, 40px);
+  color: #edf4f8;
+  box-shadow: var(--shadow-lg);
+}
+
+.process-shell .section-kicker {
+  color: #95bed8;
+}
+
+.process-shell .section-title {
+  color: #ffffff;
+}
+
+.process-shell .section-intro {
+  color: #d6e6f1;
+}
+
+.process-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.process-step {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px;
+}
+
+.step-index {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(236, 127, 44, 0.9);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.process-step h3 {
+  color: #ffffff;
+  font-size: 1.02rem;
+  margin-bottom: 4px;
+}
+
+.process-step p {
+  color: #d6e6f1;
+  font-size: 0.9rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.team-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 4px;
+  box-shadow: var(--shadow-md);
+}
+
+.team-body {
+  background: #f5f9ff;
+  border: 1px solid #d3e2f5;
+  border-radius: 11px;
+  padding: 16px;
+}
+
+.team-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.team-note {
+  color: var(--ink-700);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.team-role {
+  color: var(--signal);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.team-contact {
+  display: grid;
+  gap: 5px;
+}
+
+.team-contact a {
+  text-decoration: none;
+  color: var(--ink-800);
+  font-weight: 500;
+}
+
+.team-contact a:hover {
+  text-decoration: underline;
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.partner-card {
+  min-height: 128px;
+  border-radius: 13px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.partner-card img {
+  width: 100%;
+  height: 50px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.82;
+  transition: var(--transition);
+}
+
+.partner-card:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.partner-card p {
+  margin-top: 8px;
+  color: var(--ink-700);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.contact-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 14px;
+}
+
+.contact-panel {
+  border-radius: 16px;
+  background: linear-gradient(152deg, #0f3047, #215373 60%, #1b8a72 110%);
+  color: #eff6fb;
+  padding: 22px;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-panel .label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a4c9de;
+  font-weight: 700;
+}
+
+.contact-panel h3 {
+  color: #ffffff;
+  font-size: 1.43rem;
+  margin-bottom: 8px;
+}
+
+.contact-panel p {
+  color: #e0edf6;
+  margin-bottom: 14px;
+}
+
+.contact-list {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-list li {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 11px;
+  padding: 10px 12px;
+}
+
+.contact-list span {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #bdd9eb;
+  font-weight: 700;
+}
+
+.contact-list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-list p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+.contact-form-wrap {
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  padding: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.form-field.full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  color: var(--ink-800);
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+.form-field .optional {
+  color: var(--ink-700);
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  color: var(--ink-900);
+  background: #f1f7ff;
+  transition: var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--ink-700);
+  box-shadow: 0 0 0 4px rgba(45, 96, 127, 0.15);
+  background: #f7fbff;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-actions {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.form-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.form-btn.whatsapp {
+  background: linear-gradient(135deg, #26cb65, #189a49);
+}
+
+.form-btn.email {
+  background: linear-gradient(135deg, #1d729f, #14547f);
+}
+
+.form-btn:hover {
+  transform: translateY(-2px);
+}
+
+.form-btn:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-message {
+  display: none;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+
+.form-message.info {
+  display: block;
+  border: 1px solid #bfd2e2;
+  background: #eef5fb;
+  color: #194969;
+}
+
+.form-message.success {
+  display: block;
+  border: 1px solid #a8e2c6;
+  background: #ecf9f3;
+  color: #18694e;
+}
+
+.form-message.error {
+  display: block;
+  border: 1px solid #f0bbbb;
+  background: #fdf0f0;
+  color: #8a2424;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 34px;
+  background: rgba(222, 236, 252, 0.8);
+}
+
+.footer-inner {
+  text-align: center;
+  padding: 24px 0 34px;
+}
+
+.footer-inner p {
+  color: var(--ink-700);
+}
+
+.footer-inner p + p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1080px) {
+  .hero-grid,
+  .about-grid,
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    grid-template-columns: auto 1fr auto auto;
+    gap: 8px;
+    position: sticky;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 14px;
+    right: 14px;
+    display: grid;
+    gap: 4px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 8px;
+    background: rgba(231, 242, 255, 0.97);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: var(--transition);
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .site-nav a {
+    border-radius: 10px;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  .quick-contact {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .section-header {
+    display: block;
+  }
+
+  .section-intro {
+    margin-top: 10px;
+  }
+
+  .form-grid,
+  .form-actions,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-name {
+    display: none;
+  }
+
+  .site-header {
+    padding-inline: 10px;
+  }
+
+  .trust-grid,
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-tags li {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+<header class="site-header">
+  <a href="#top" class="brand">
+    <img src="images/logo.png" alt="Work It All logo">
+    <span class="brand-name"><span class="brand-word-main">Work</span> <span class="brand-word-link">It</span> <span class="brand-word-main">All</span></span>
+  </a>
+
+  <nav id="mainNav" class="site-nav">
+    <a href="#about" data-i18n="nav.about"></a>
+    <a href="#services" data-i18n="nav.services"></a>
+    <a href="#process" data-i18n="nav.process"></a>
+    <a href="#partners" data-i18n="nav.partners"></a>
+    <a href="#team" data-i18n="nav.team"></a>
+    <a href="#contact" data-i18n="nav.contact"></a>
+  </nav>
+
+  <div class="header-tools">
+    <a class="quick-contact" href="#contact" data-i18n="nav.cta"></a>
+    <label class="sr-only" for="languageSelect" data-i18n="nav.language"></label>
+    <select id="languageSelect" class="language-select" data-i18n-aria="nav.language">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+    </select>
+  </div>
+
+  <button id="menuButton" class="menu-button" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+        <h1 class="hero-title" data-i18n="hero.title"></h1>
+        <p class="hero-lead" data-i18n="hero.lead"></p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary" data-i18n="hero.primaryCta"></a>
+          <a href="#services" class="btn btn-secondary" data-i18n="hero.secondaryCta"></a>
+        </div>
+
+        <ul class="hero-tags">
+          <li data-i18n="hero.tag1"></li>
+          <li data-i18n="hero.tag2"></li>
+          <li data-i18n="hero.tag3"></li>
+          <li data-i18n="hero.tag4"></li>
+        </ul>
+      </div>
+
+      <aside class="hero-panel reveal">
+        <img src="images/hero.jpg" alt="Modern industrial production line">
+        <h3 data-i18n="hero.panelTitle"></h3>
+        <p data-i18n="hero.panelLead"></p>
+        <ul class="panel-list">
+          <li>
+            <span class="panel-bullet" aria-hidden="true"></span>
+            <span data-i18n="hero.panelItem1"></span>
+          </li>
+          <li>
+            <span class="panel-bullet" aria-hidden="true"></span>
+            <span data-i18n="hero.panelItem2"></span>
+          </li>
+          <li>
+            <span class="panel-bullet" aria-hidden="true"></span>
+            <span data-i18n="hero.panelItem3"></span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="container trust-grid reveal">
+      <article class="trust-item">
+        <strong data-i18n="trust.automation.title"></strong>
+        <span data-i18n="trust.automation.desc"></span>
+      </article>
+      <article class="trust-item">
+        <strong data-i18n="trust.robotics.title"></strong>
+        <span data-i18n="trust.robotics.desc"></span>
+      </article>
+      <article class="trust-item">
+        <strong data-i18n="trust.data.title"></strong>
+        <span data-i18n="trust.data.desc"></span>
+      </article>
+      <article class="trust-item">
+        <strong data-i18n="trust.facilities.title"></strong>
+        <span data-i18n="trust.facilities.desc"></span>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker" data-i18n="about.kicker"></p>
+          <h2 class="section-title" data-i18n="about.title"></h2>
+        </div>
+        <p class="section-intro" data-i18n="about.lead"></p>
+      </div>
+
+      <div class="about-grid">
+        <article class="about-card reveal">
+          <p data-i18n="about.text"></p>
+          <ul class="about-points">
+            <li>
+              <h3 data-i18n="about.point1.title"></h3>
+              <p data-i18n="about.point1.desc"></p>
+            </li>
+            <li>
+              <h3 data-i18n="about.point2.title"></h3>
+              <p data-i18n="about.point2.desc"></p>
+            </li>
+            <li>
+              <h3 data-i18n="about.point3.title"></h3>
+              <p data-i18n="about.point3.desc"></p>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker" data-i18n="services.kicker"></p>
+          <h2 class="section-title" data-i18n="services.title"></h2>
+        </div>
+        <p class="section-intro" data-i18n="services.lead"></p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <img src="images/automation.jpg" alt="Industrial automation systems">
+          <div class="service-body">
+            <h3 data-i18n="services.items.automation.title"></h3>
+            <p data-i18n="services.items.automation.desc"></p>
+          </div>
+        </article>
+
+        
+
+        <article class="service-card reveal">
+          <img src="images/smart.jpg" alt="Smart manufacturing monitoring dashboard">
+          <div class="service-body">
+            <h3 data-i18n="services.items.smart.title"></h3>
+            <p data-i18n="services.items.smart.desc"></p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img src="images/vision.jpg" alt="Industrial vision inspection systems">
+          <div class="service-body">
+            <h3 data-i18n="services.items.vision.title"></h3>
+            <p data-i18n="services.items.vision.desc"></p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img src="images/spareparts1.jpg" alt="Automation spare parts inventory">
+          <div class="service-body">
+            <h3 data-i18n="services.items.spare.title"></h3>
+            <p data-i18n="services.items.spare.desc"></p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img src="images/traceability.png" alt="Machine traceability with barcode and QR">
+          <div class="service-body">
+            <h3 data-i18n="services.items.traceability.title"></h3>
+            <p data-i18n="services.items.traceability.desc"></p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img src="images/installation.jpg" alt="Electrical and pneumatic machine installation">
+          <div class="service-body">
+            <h3 data-i18n="services.items.installation.title"></h3>
+            <p data-i18n="services.items.installation.desc"></p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img src="images/facilities.jpg" alt="Industrial facility and utilities engineering">
+          <div class="service-body">
+            <h3 data-i18n="services.items.facilities.title"></h3>
+            <p data-i18n="services.items.facilities.desc"></p>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <img src="images/thermography.webp" alt="Thermography maintenance diagnostics">
+          <div class="service-body">
+            <h3 data-i18n="services.items.thermography.title"></h3>
+            <p data-i18n="services.items.thermography.desc"></p>
+          </div>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="section reveal">
+    <div class="container process-shell">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker" data-i18n="process.kicker"></p>
+          <h2 class="section-title" data-i18n="process.title"></h2>
+        </div>
+        <p class="section-intro" data-i18n="process.lead"></p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-step reveal">
+          <span class="step-index">1</span>
+          <h3 data-i18n="process.step1.title"></h3>
+          <p data-i18n="process.step1.desc"></p>
+        </article>
+
+        <article class="process-step reveal">
+          <span class="step-index">2</span>
+          <h3 data-i18n="process.step2.title"></h3>
+          <p data-i18n="process.step2.desc"></p>
+        </article>
+
+        <article class="process-step reveal">
+          <span class="step-index">3</span>
+          <h3 data-i18n="process.step3.title"></h3>
+          <p data-i18n="process.step3.desc"></p>
+        </article>
+
+        <article class="process-step reveal">
+          <span class="step-index">4</span>
+          <h3 data-i18n="process.step4.title"></h3>
+          <p data-i18n="process.step4.desc"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker" data-i18n="team.kicker"></p>
+          <h2 class="section-title" data-i18n="team.title"></h2>
+        </div>
+        <p class="section-intro" data-i18n="team.lead"></p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <div class="team-body">
+            <h3>Abdsalam</h3>
+            <p class="team-role" data-i18n="team.role1"></p>
+            <div class="team-contact">
+              <a href="mailto:admin@workitall.com">admin@workitall.com</a>
+              <a href="tel:+212650720875">+212 650720875</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="team-card reveal">
+          <div class="team-body">
+            <h3>Ayoub Bhar</h3>
+            <p class="team-role" data-i18n="team.role2"></p>
+            <div class="team-contact">
+              <a href="mailto:service@workitall.com">service@workitall.com</a>
+              <a href="tel:+212600000000">+212 600000000</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker" data-i18n="partners.kicker"></p>
+          <h2 class="section-title" data-i18n="partners.title"></h2>
+        </div>
+        <p class="section-intro" data-i18n="partners.lead"></p>
+      </div>
+
+      <div class="partner-grid">
+        <article class="partner-card reveal">
+          <img src="images/te.jpeg" alt="TE Connectivity partner logo">
+          <p>TE Connectivity</p>
+        </article>
+
+        <article class="partner-card reveal">
+          <img src="images/voltera.jpg" alt="Voltera partner logo">
+          <p>Voltaira</p>
+        </article>
+
+        <article class="partner-card reveal">
+          <img src="images/broad-ocean.jpg" alt="Broad Ocean partner logo">
+          <p>Broad Ocean</p>
+        </article>
+
+        <article class="partner-card reveal">
+          <img src="images/cvg.png" alt="CVG partner logo">
+          <p>CVG</p>
+        </article>
+
+        <article class="partner-card reveal">
+          <img src="images/alfa.png" alt="Alfagomma partner logo">
+          <p>Alfagomma</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker" data-i18n="contact.kicker"></p>
+          <h2 class="section-title" data-i18n="contact.title"></h2>
+        </div>
+        <p class="section-intro" data-i18n="contact.lead"></p>
+      </div>
+
+      <div class="contact-wrap">
+        <aside class="contact-panel reveal">
+          <span class="label" data-i18n="contact.panelKicker"></span>
+          <h3 data-i18n="contact.panelTitle"></h3>
+          <p data-i18n="contact.panelText"></p>
+
+          <ul class="contact-list">
+            <li>
+              <span data-i18n="contact.channels.email"></span>
+              <a href="mailto:contact@workitall.com">contact@workitall.com</a>
+            </li>
+            <li>
+              <span data-i18n="contact.channels.phone"></span>
+              <a href="tel:+212650720875">+212 650720875</a>
+            </li>
+            <li>
+              <span data-i18n="contact.channels.whatsapp"></span>
+              <a href="https://wa.me/212650720875" target="_blank" rel="noopener">+212 650720875</a>
+            </li>
+            <li>
+              <span data-i18n="contact.channels.location"></span>
+              <a href="https://maps.google.com/?q=Tangier+Morocco" target="_blank" rel="noopener" data-i18n="contact.channels.locationValue"></a>
+            </li>
+            <li>
+              <span data-i18n="contact.channels.hours"></span>
+              <p data-i18n="contact.channels.hoursValue"></p>
+            </li>
+            <li>
+              <span data-i18n="contact.channels.response"></span>
+              <p data-i18n="contact.channels.responseValue"></p>
+            </li>
+          </ul>
+        </aside>
+
+        <div class="contact-form-wrap reveal">
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name"><span data-i18n="contact.form.name"></span> *</label>
+                <input id="name" name="name" type="text" data-i18n-placeholder="contact.form.placeholders.name" required>
+              </div>
+
+              <div class="form-field">
+                <label for="email"><span data-i18n="contact.form.email"></span> *</label>
+                <input id="email" name="email" type="email" data-i18n-placeholder="contact.form.placeholders.email" required>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">
+                  <span data-i18n="contact.form.phone"></span>
+                  <span class="optional" data-i18n="contact.form.optional"></span>
+                </label>
+                <input id="phone" name="phone" type="tel" data-i18n-placeholder="contact.form.placeholders.phone">
+              </div>
+
+              <div class="form-field">
+                <label for="sector"><span data-i18n="contact.form.sector"></span> *</label>
+                <select id="sector" name="sector" required>
+                  <option value="" data-i18n="contact.form.sectors.default"></option>
+                  <option value="automation" data-i18n="contact.form.sectors.automation"></option>
+                  <option value="maintenance" data-i18n="contact.form.sectors.maintenance"></option>
+                  <option value="thermography" data-i18n="contact.form.sectors.thermography"></option>
+                  <option value="spare-parts" data-i18n="contact.form.sectors.spare"></option>
+                  <option value="robotics" data-i18n="contact.form.sectors.robotics"></option>
+                  <option value="other" data-i18n="contact.form.sectors.other"></option>
+                </select>
+              </div>
+
+              <div class="form-field full">
+                <label for="message"><span data-i18n="contact.form.message"></span> *</label>
+                <textarea id="message" name="message" data-i18n-placeholder="contact.form.placeholders.message" required></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button id="submitWhatsapp" class="form-btn whatsapp" type="submit" data-i18n="contact.buttons.whatsapp"></button>
+              <button id="submitEmail" class="form-btn email" type="button" data-i18n="contact.buttons.email"></button>
+            </div>
+
+            <p id="formStatus" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p data-i18n="footer.main"></p>
+    <p data-i18n="footer.sub"></p>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  en: {
+    meta: {
+      title: "Work It All | Advanced Automation & Robotics Solutions",
+      description: "Industrial automation, robotics integration, traceability, and technical support from Tangier for factories in Morocco and abroad."
+    },
+    nav: {
+      about: "About",
+      services: "Services",
+      process: "Process",
+      partners: "Partners",
+      team: "Team",
+      contact: "Contact",
+      cta: "Discuss Your Project",
+      language: "Select language"
+    },
+    hero: {
+      eyebrow: "Industrial Automation Engineering",
+      title: "Engineering Intelligence. Delivering Reality.",
+      lead: "We design, install, and support automation systems that boost output, reduce downtime, and keep quality under control.",
+      primaryCta: "Request Consultation",
+      secondaryCta: "Explore Services",
+      tag1: "PLC & SCADA Systems",
+      tag2: "Robotics Integration",
+      tag3: "Machine Traceability",
+      tag4: "Thermography Maintenance",
+      panelTitle: "From retrofit to full integration",
+      panelLead: "Work It All designs and deploys robust solutions for production lines, utilities, and mission-critical industrial assets.",
+      panelItem1: "Control architecture and commissioning for automated systems",
+      panelItem2: "Electrical and pneumatic installation for industrial machines",
+      panelItem3: "Ongoing support for optimization, reliability, and uptime"
+    },
+    trust: {
+      automation: {
+        title: "Automation",
+        desc: "PLC programming and control architecture"
+      },
+      robotics: {
+        title: "Robotics",
+        desc: "Servo motion and integrated handling cells"
+      },
+      data: {
+        title: "Industry 4.0",
+        desc: "Real-time monitoring and data-driven operations"
+      },
+      facilities: {
+        title: "Facilities",
+        desc: "Power, compressors, chillers, and utilities"
+      }
+    },
+    about: {
+      kicker: "Who We Are",
+      title: "About Work It All",
+      lead: "Engineering partner for industrial modernization in Morocco and international projects.",
+      text: "Work It All supports manufacturers from concept to startup with automation, robotics, and utility engineering. Our team combines field execution with practical standards to deliver stable production, safer operations, and measurable performance.",
+      point1: {
+        title: "Automation Core",
+        desc: "PLC/SCADA design, machine retrofit, and cabinet upgrades with clear electrical standards."
+      },
+      point2: {
+        title: "Operational Visibility",
+        desc: "OEE tracking, live dashboards, and traceability data for better daily decisions."
+      },
+      point3: {
+        title: "Field Execution",
+        desc: "On-site installation, commissioning, and responsive support from kickoff to handover."
+      },
+      caption: "On-site integration teams focused on uptime, quality stability, and long-term reliability."
+    },
+    services: {
+      kicker: "Capabilities",
+      title: "Integrated Industrial Services",
+      lead: "A complete portfolio from control systems and maintenance to high-spec special production materials.",
+      items: {
+        automation: {
+          title: "Industrial Automation",
+          desc: "PLC/SCADA architecture, retrofit execution, and electrical panel modernization."
+        },
+        robotics: {
+          title: "Robotics Integration",
+          desc: "We design robotic manipulators based on servo motors."
+        },
+        smart: {
+          title: "Smart Manufacturing",
+          desc: "Live production monitoring, alerts, and Industry 4.0 data workflows."
+        },
+        vision: {
+          title: "Vision Systems",
+          desc: "In-line inspection, defect detection, and traceable quality control."
+        },
+        spare: {
+          title: "Automation Spare Parts",
+          desc: "Fast sourcing of PLCs, HMIs, sensors, drives, and compatible industrial components."
+        },
+        traceability: {
+          title: "Machine Traceability",
+          desc: "Barcode, QR, and label systems linked to batches and serial history."
+        },
+        installation: {
+          title: "Technical Installation",
+          desc: "Electrical and pneumatic machine installation with startup assistance."
+        },
+        facilities: {
+          title: "Industrial Facilities",
+          desc: "TGBT, compressors, generators, chillers, and utility infrastructure services."
+        },
+        thermography: {
+          title: "Thermography Maintenance",
+          desc: "Thermal audits for cabinets and fluid lines with loss and temperature analysis."
+        },
+        special: {
+          title: "Special Production",
+          desc: "Supply of high-purity distilled water (0.1 microsiemens) and industrial methanol."
+        }
+      }
+    },
+    process: {
+      kicker: "Method",
+      title: "How We Deliver",
+      lead: "A practical delivery method that controls risk and speeds up industrial results.",
+      step1: {
+        title: "Audit & Scope",
+        desc: "Map technical requirements, constraints, and output targets."
+      },
+      step2: {
+        title: "Design & Integration",
+        desc: "Engineer control, robotics, and utility architecture for your context."
+      },
+      step3: {
+        title: "Commissioning",
+        desc: "Deploy, test, and validate with production-ready standards."
+      },
+      step4: {
+        title: "Optimization & Support",
+        desc: "Track performance, tune systems, and maintain long-term reliability."
+      }
+    },
+    team: {
+      kicker: "People",
+      title: "Our Team",
+      lead: "Direct contacts for business coordination and automation engineering support.",
+      role1: "Business Manager",
+      role2: "Technical Manager & Automation Expert",
+      bio1: "Project scoping, quotations, and customer coordination from first meeting to launch.",
+      bio2: "PLC and robotics implementation, commissioning, and on-site troubleshooting support."
+    },
+    partners: {
+      kicker: "Network",
+      title: "Our Partners",
+      lead: "Trusted by leading names in the industry."
+    },
+    contact: {
+      kicker: "Contact",
+      title: "Contact Us",
+      lead: "Share your requirement and receive a first response within 24 business hours.",
+      formValidation: "Please complete all required fields.",
+      panelKicker: "Direct Coordination",
+      panelTitle: "Talk to engineering and sales in one channel",
+      panelText: "Based in Tangier, we support on-site and remote industrial projects across Morocco and international operations.",
+      channels: {
+        email: "Email",
+        phone: "Phone",
+        whatsapp: "WhatsApp",
+        location: "Location",
+        locationValue: "Tangier, Morocco",
+        hours: "Working Hours",
+        hoursValue: "Mon - Sat, 08:00 to 19:00",
+        response: "Response Time",
+        responseValue: "Within 24 business hours"
+      },
+      form: {
+        name: "Name",
+        email: "Email",
+        phone: "Phone Number",
+        optional: "(optional)",
+        sector: "Sector of Interest",
+        message: "Message",
+        placeholders: {
+          name: "Your full name",
+          email: "your.email@example.com",
+          phone: "+212 XXX XXX XXX",
+          message: "Tell us about your project or inquiry..."
+        },
+        sectors: {
+          default: "-- Select a sector --",
+          automation: "Automation",
+          maintenance: "Maintenance",
+          thermography: "Thermography Maintenance",
+          spare: "Spare Parts",
+          robotics: "Robotics Integration",
+          other: "Other Services"
+        }
+      },
+      buttons: {
+        whatsapp: "Send via WhatsApp",
+        email: "Send via Email",
+        sending: "Sending..."
+      },
+      messages: {
+        sending: "Preparing your message...",
+        email: "Opening your email app to send your message...",
+        whatsapp: "Redirecting to WhatsApp to send your message..."
+      },
+      whatsapp: {
+        header: "New Contact Form Submission",
+        notProvided: "Not provided",
+        labels: {
+          name: "Name",
+          email: "Email",
+          phone: "Phone",
+          sector: "Sector",
+          message: "Message"
+        },
+        subject: "New Contact Form Submission"
+      }
+    },
+    footer: {
+      main: "© 2026 Work It All. All rights reserved.",
+      sub: "Transforming industries through innovation."
+    }
+  },
+  fr: {
+    meta: {
+      title: "Work It All | Solutions avancees en automatisation et robotique",
+      description: "Automatisation industrielle, integration robotique, tracabilite et support technique depuis Tanger pour le Maroc et l'international."
+    },
+    nav: {
+      about: "A propos",
+      services: "Services",
+      process: "Processus",
+      partners: "Partenaires",
+      team: "Equipe",
+      contact: "Contact",
+      cta: "Parler de votre projet",
+      language: "Choisir la langue"
+    },
+    hero: {
+      eyebrow: "Ingenierie d'automatisation industrielle",
+      title: "L'intelligence de l'ingenierie. Des resultats concrets.",
+      lead: "Nous concevons, installons et maintenons des systemes d'automatisation qui augmentent la cadence, reduisent les arrets et stabilisent la qualite.",
+      primaryCta: "Demander une consultation",
+      secondaryCta: "Voir les services",
+      tag1: "Systemes PLC & SCADA",
+      tag2: "Integration robotique",
+      tag3: "Tracabilite machine",
+      tag4: "Maintenance thermographique",
+      panelTitle: "Du retrofit a l'integration complete",
+      panelLead: "Work It All concoit et deploie des solutions robustes pour lignes de production, utilites industrielles et actifs critiques.",
+      panelItem1: "Architecture de controle et commissioning des systemes automatises",
+      panelItem2: "Installation electrique et pneumatique des machines industrielles",
+      panelItem3: "Support continu pour optimisation, fiabilite et disponibilite"
+    },
+    trust: {
+      automation: {
+        title: "Automatisation",
+        desc: "Programmation PLC et architecture de controle"
+      },
+      robotics: {
+        title: "Robotique",
+        desc: "Mouvements servo et cellules de manutention integrees"
+      },
+      data: {
+        title: "Industrie 4.0",
+        desc: "Monitoring en temps reel et operations pilotees par la donnee"
+      },
+      facilities: {
+        title: "Installations",
+        desc: "Energie, compresseurs, chillers et utilites"
+      }
+    },
+    about: {
+      kicker: "Qui nous sommes",
+      title: "A propos de Work It All",
+      lead: "Partenaire d'ingenierie pour la modernisation industrielle au Maroc et a l'international.",
+      text: "Work It All accompagne les industriels du cadrage au demarrage avec l'automatisation, la robotique et les utilites. Notre equipe combine execution terrain et standards concrets pour livrer une production stable, plus sure et mesurable.",
+      point1: {
+        title: "Noyau automatisation",
+        desc: "Architecture PLC/SCADA, retrofit machines et modernisation d'armoires selon des standards clairs."
+      },
+      point2: {
+        title: "Visibilite operationnelle",
+        desc: "Suivi OEE, tableaux de bord en temps reel et donnees de tracabilite pour mieux piloter."
+      },
+      point3: {
+        title: "Execution terrain",
+        desc: "Installation sur site, commissioning et support reactif du lancement a la mise en service."
+      },
+      caption: "Equipes d'integration sur site orientees disponibilite, stabilite qualite et fiabilite long terme."
+    },
+    services: {
+      kicker: "Capacites",
+      title: "Services industriels integres",
+      lead: "Un portefeuille complet des systemes de controle et maintenance jusqu'aux produits de production speciale.",
+      items: {
+        automation: {
+          title: "Automatisation industrielle",
+          desc: "Architecture PLC/SCADA, retrofit machines et modernisation de tableaux electriques."
+        },
+        robotics: {
+          title: "Integration robotique",
+          desc: "Nous concevons des manipulateurs robotiques bases sur des servomoteurs."
+        },
+        smart: {
+          title: "Fabrication intelligente",
+          desc: "Monitoring de production, alertes en temps reel et flux de donnees Industrie 4.0."
+        },
+        vision: {
+          title: "Systemes de vision",
+          desc: "Inspection en ligne, detection de defauts et controle qualite tracable."
+        },
+        spare: {
+          title: "Pieces de rechange automatisation",
+          desc: "Approvisionnement rapide en PLC, HMI, capteurs, variateurs et composants compatibles."
+        },
+        traceability: {
+          title: "Tracabilite machine",
+          desc: "Systemes code-barres, QR et etiquetage relies aux lots et historiques serie."
+        },
+        installation: {
+          title: "Installation technique",
+          desc: "Installation electrique et pneumatique des machines avec accompagnement au demarrage."
+        },
+        facilities: {
+          title: "Installations industrielles",
+          desc: "TGBT, compresseurs, generateurs, chillers et services d'infrastructures utilites."
+        },
+        thermography: {
+          title: "Maintenance thermographique",
+          desc: "Audits thermiques des armoires et lignes fluides avec analyse des pertes et temperatures."
+        },
+        special: {
+          title: "Production speciale",
+          desc: "Fourniture d'eau distillee haute purete (0,1 microsiemens) et de methanol industriel."
+        }
+      }
+    },
+    process: {
+      kicker: "Methode",
+      title: "Comment nous livrons",
+      lead: "Une methode pragmatique qui maitrise les risques et accelere les resultats industriels.",
+      step1: {
+        title: "Audit et cadrage",
+        desc: "Cartographier les exigences techniques, contraintes et objectifs de sortie."
+      },
+      step2: {
+        title: "Conception et integration",
+        desc: "Concevoir l'architecture controle, robotique et utilites selon votre contexte."
+      },
+      step3: {
+        title: "Commissioning",
+        desc: "Deployer, tester et valider selon des standards prets pour la production."
+      },
+      step4: {
+        title: "Optimisation et support",
+        desc: "Suivre la performance, ajuster les systemes et maintenir la fiabilite dans la duree."
+      }
+    },
+    team: {
+      kicker: "Equipe",
+      title: "Notre equipe",
+      lead: "Contacts directs pour coordination commerciale et support en ingenierie d'automatisation.",
+      role1: "Responsable commercial",
+      role2: "Expert en automatisation",
+      bio1: "Cadrage du besoin, chiffrage et coordination client du premier echange au lancement.",
+      bio2: "Implementation PLC/robotique, commissioning et support de depannage sur site."
+    },
+    partners: {
+      kicker: "Reseau",
+      title: "Nos partenaires",
+      lead: "Ils nous font confiance: les plus grands acteurs de l'industrie."
+    },
+    contact: {
+      kicker: "Contact",
+      title: "Contactez-nous",
+      lead: "Partagez votre besoin et recevez un premier retour sous 24 heures ouvrees.",
+      formValidation: "Merci de remplir tous les champs obligatoires.",
+      panelKicker: "Coordination directe",
+      panelTitle: "Echangez avec l'ingenierie et le commercial sur un seul canal",
+      panelText: "Bases a Tanger, nous accompagnons des projets industriels sur site et a distance au Maroc et a l'international.",
+      channels: {
+        email: "Email",
+        phone: "Telephone",
+        whatsapp: "WhatsApp",
+        location: "Localisation",
+        locationValue: "Tanger, Maroc",
+        hours: "Horaires",
+        hoursValue: "Lun - Sam, 08:00 a 19:00",
+        response: "Delai de reponse",
+        responseValue: "Sous 24 heures ouvrees"
+      },
+      form: {
+        name: "Nom",
+        email: "Email",
+        phone: "Telephone",
+        optional: "(optionnel)",
+        sector: "Secteur d'interet",
+        message: "Message",
+        placeholders: {
+          name: "Votre nom complet",
+          email: "votre.email@exemple.com",
+          phone: "+212 XXX XXX XXX",
+          message: "Parlez-nous de votre projet ou demande..."
+        },
+        sectors: {
+          default: "-- Selectionnez un secteur --",
+          automation: "Automatisation",
+          maintenance: "Maintenance",
+          thermography: "Maintenance thermographique",
+          spare: "Pieces de rechange",
+          robotics: "Integration robotique",
+          other: "Autres services"
+        }
+      },
+      buttons: {
+        whatsapp: "Envoyer via WhatsApp",
+        email: "Envoyer par Email",
+        sending: "Envoi en cours..."
+      },
+      messages: {
+        sending: "Preparation de votre message...",
+        email: "Ouverture de votre messagerie pour envoyer votre message...",
+        whatsapp: "Redirection vers WhatsApp pour envoyer votre message..."
+      },
+      whatsapp: {
+        header: "Nouvelle soumission du formulaire de contact",
+        notProvided: "Non renseigne",
+        labels: {
+          name: "Nom",
+          email: "Email",
+          phone: "Telephone",
+          sector: "Secteur",
+          message: "Message"
+        },
+        subject: "Nouvelle soumission du formulaire de contact"
+      }
+    },
+    footer: {
+      main: "© 2026 Work It All. Tous droits reserves.",
+      sub: "Transformer l'industrie par l'innovation."
+    }
+  }
+};
+
+const languageSelect = document.getElementById("languageSelect");
+const menuButton = document.getElementById("menuButton");
+const mainNav = document.getElementById("mainNav");
+const contactForm = document.getElementById("contactForm");
+const submitWhatsappButton = document.getElementById("submitWhatsapp");
+const submitEmailButton = document.getElementById("submitEmail");
+const formStatus = document.getElementById("formStatus");
+const metaDescription = document.querySelector('meta[name="description"]');
+
+let currentLanguage = "en";
+
+function getValueByPath(source, path) {
+  return path.split(".").reduce((current, key) => {
+    if (current && Object.prototype.hasOwnProperty.call(current, key)) {
+      return current[key];
+    }
+    return undefined;
+  }, source);
+}
+
+function closeMobileMenu() {
+  mainNav.classList.remove("is-open");
+  menuButton.setAttribute("aria-expanded", "false");
+}
+
+function setFormMessage(type, message) {
+  formStatus.className = "form-message";
+  formStatus.textContent = "";
+
+  if (!type || !message) {
+    return;
+  }
+
+  formStatus.classList.add(type);
+  formStatus.textContent = message;
+}
+
+function setButtonLoading(isLoading) {
+  const t = translations[currentLanguage];
+  submitWhatsappButton.disabled = isLoading;
+  submitEmailButton.disabled = isLoading;
+
+  if (isLoading) {
+    submitWhatsappButton.textContent = t.contact.buttons.sending;
+    submitEmailButton.textContent = t.contact.buttons.sending;
+  } else {
+    submitWhatsappButton.textContent = t.contact.buttons.whatsapp;
+    submitEmailButton.textContent = t.contact.buttons.email;
+  }
+}
+
+function applyTranslations(lang) {
+  const t = translations[lang] || translations.en;
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const value = getValueByPath(t, element.dataset.i18n);
+    if (typeof value === "string") {
+      element.textContent = value;
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const value = getValueByPath(t, element.dataset.i18nPlaceholder);
+    if (typeof value === "string") {
+      element.placeholder = value;
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    const value = getValueByPath(t, element.dataset.i18nAria);
+    if (typeof value === "string") {
+      element.setAttribute("aria-label", value);
+    }
+  });
+
+  document.title = t.meta.title;
+  if (metaDescription) {
+    metaDescription.setAttribute("content", t.meta.description);
+  }
+
+  languageSelect.value = lang;
+}
+
+function setLanguage(lang) {
+  currentLanguage = translations[lang] ? lang : "en";
+  document.documentElement.lang = currentLanguage;
+  localStorage.setItem("workitall-language", currentLanguage);
+  applyTranslations(currentLanguage);
+}
+
+function buildSubmissionData() {
+  const t = translations[currentLanguage];
+  const sectorField = document.getElementById("sector");
+  const selectedSector = sectorField.options[sectorField.selectedIndex];
+
+  return {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim() || t.contact.whatsapp.notProvided,
+    sector: selectedSector ? selectedSector.text : t.contact.whatsapp.notProvided,
+    message: document.getElementById("message").value.trim()
+  };
+}
+
+function buildSubmissionMessage(payload) {
+  const t = translations[currentLanguage];
+
+  return `${t.contact.whatsapp.header}\n\n${t.contact.whatsapp.labels.name}: ${payload.name}\n${t.contact.whatsapp.labels.email}: ${payload.email}\n${t.contact.whatsapp.labels.phone}: ${payload.phone}\n${t.contact.whatsapp.labels.sector}: ${payload.sector}\n\n${t.contact.whatsapp.labels.message}:\n${payload.message}`;
+}
+
+function handleSubmission(channel) {
+  const t = translations[currentLanguage];
+
+  if (!contactForm.checkValidity()) {
+    contactForm.reportValidity();
+    setFormMessage("error", t.contact.formValidation || "Please complete all required fields.");
+    return;
+  }
+
+  const payload = buildSubmissionData();
+  const message = buildSubmissionMessage(payload);
+  const subject = `${t.contact.whatsapp.subject} - ${payload.name}`;
+
+  setButtonLoading(true);
+  setFormMessage("info", t.contact.messages.sending);
+
+  window.setTimeout(() => {
+    if (channel === "email") {
+      const mailto = `mailto:contact@workitall.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+      window.location.href = mailto;
+      setFormMessage("success", t.contact.messages.email);
+    } else {
+      const whatsappUrl = `https://wa.me/212650720875?text=${encodeURIComponent(message)}`;
+      const openedWindow = window.open(whatsappUrl, "_blank", "noopener");
+      if (!openedWindow) {
+        window.location.href = whatsappUrl;
+      }
+      setFormMessage("success", t.contact.messages.whatsapp);
+    }
+
+    setButtonLoading(false);
+    contactForm.reset();
+
+    window.setTimeout(() => {
+      setFormMessage("", "");
+    }, 2600);
+  }, 550);
+}
+
+menuButton.addEventListener("click", () => {
+  const isOpen = mainNav.classList.toggle("is-open");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+});
+
+document.querySelectorAll("#mainNav a").forEach((link) => {
+  link.addEventListener("click", closeMobileMenu);
+});
+
+document.addEventListener("click", (event) => {
+  if (window.innerWidth > 980) {
+    return;
+  }
+
+  if (!mainNav.contains(event.target) && !menuButton.contains(event.target)) {
+    closeMobileMenu();
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 980) {
+    closeMobileMenu();
+  }
+});
+
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  handleSubmission("whatsapp");
+});
+
+submitEmailButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  handleSubmission("email");
+});
+
+languageSelect.addEventListener("change", (event) => {
+  setLanguage(event.target.value);
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedLanguage = localStorage.getItem("workitall-language") || "en";
+  setLanguage(savedLanguage);
+
+  const revealElements = document.querySelectorAll(".reveal");
+  revealElements.forEach((element, index) => {
+    const delay = Math.min(index * 55, 440);
+    element.style.setProperty("--delay", `${delay}ms`);
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: "0px 0px -40px 0px"
+  });
+
+  revealElements.forEach((element) => observer.observe(element));
+});
+</script>
+</body>
+</html>
